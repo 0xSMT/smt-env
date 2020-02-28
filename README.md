@@ -1,6 +1,6 @@
 # SMT-Env
 
-A small library for binding arbitrary PyGames to OpenAI Gym. By designing a game that extends the BaseGame class, any given game can 
+A small library for binding arbitrary PyGames to OpenAI Gym. By designing a game that extends the BaseGame class, any given game can utilize OpenAI's interface and resources for easy AI algorithm design and experimental verification.
 
 ## Installation
 
