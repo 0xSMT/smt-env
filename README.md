@@ -25,7 +25,7 @@ To create a new simulation, example the example environments in `smtenv/envs` an
 To update the library, run the following (in the cloned directory you originally installed into):
 
 ```bash
-git fetch
+git pull
 pip3 install -e .
 ```
 
