@@ -8,7 +8,7 @@ with open(os.path.join(os.path.dirname(__file__), "readme.md")) as f:
 
 setup(
     name='smt-env',
-    version=0.5,
+    version=1.1,
     description='A package for allowing an arbitrary PyGame (inherting from BaseGame) as an OpenAI Gym Environment.',
     url='https://github.com/0xSMT/smt-env',
     author='0xSMT',
