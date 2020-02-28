@@ -6,7 +6,7 @@ os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame, math, sys, random
 
 import pygame.constants
-from basegame import BaseGame 
+from smtenv.basegame import BaseGame 
 
 # from gym.spaces import Box, Dict
 
