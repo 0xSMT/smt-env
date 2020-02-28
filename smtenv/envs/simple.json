@@ -1,0 +1,19 @@
+{
+    "width": 4,
+    "height": 4, 
+    "cellsize": 100,
+    "player": {
+        "x": 0,
+        "y": 0,
+        "vision": 2
+    },
+    "enemies": [
+        {
+            "id": "A",
+            "x": 2,
+            "y": 2,
+            "behavior": "chase",
+            "action_rate": 6
+        }
+    ]
+}
