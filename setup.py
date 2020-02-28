@@ -3,7 +3,7 @@ import os
 
 long_desc = ""
 
-with open(os.path.join(os.path.dirname(__file__), "readme.md")) as f:
+with open(os.path.join(os.path.dirname(__file__), "README.md")) as f:
     long_desc = f.read()
 
 setup(
