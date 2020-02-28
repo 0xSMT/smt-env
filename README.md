@@ -19,3 +19,14 @@ pip3 install -e .
 A Q-Learning example is available in `examples/`
 
 To create a new simulation, example the example environments in `smtenv/envs` and note the methods they extend from `smtenv.basegame.BaseGame` 
+
+## Updating
+
+To update the library, run the following (in the cloned directory you originally installed into):
+
+```bash
+git fetch
+pip3 install -e .
+```
+
+Update the library whenever new changes to the repository occur.
