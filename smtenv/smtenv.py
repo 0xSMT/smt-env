@@ -9,7 +9,7 @@ import sys, os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
 import pygame
-from basegame import BaseGame
+from smtenv.basegame import BaseGame
 
 class _GameWrapper:
     def __init__(self,
