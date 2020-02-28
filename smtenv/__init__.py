@@ -1,4 +1,4 @@
-from smtenv import smtenv
-from smtenv import basegame
+from smtenv import SMTEnv
+from smtenv.basegame import BaseGame
 
 import smtenv.envs
