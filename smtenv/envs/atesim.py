@@ -3,7 +3,7 @@
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
-import pygame, math, sys, random, json
+import pygame, math, sys, random, json, random
 
 import numpy as np
 
@@ -262,18 +262,44 @@ class ATESim(BaseGame):
 
         self.enemies = []
 
-        for enemy in self.config['enemies']:
-            e = Enemy(
-                enemy['x'],
-                enemy['y'],
-                self.config['cellsize'],
-                self.config['width'], self.config['height'],
-                id=enemy['id'],
-                behavior=behaviors[enemy['behavior']],
-                action_rate=enemy['action_rate']
-            )
+        pt_set = set()
+        if self.config.get('random'):
+            min_dist = self.config.get('mind_dist') or 1
 
-            self.enemies.append(e)
+            for x in range(self.config['width']):
+                for y in range(self.config['height']):
+                    if self.player.dist(x, y) >= min_dist:
+                        pt_set.add((x, y))
+
+            for enemy in self.config['enemies']:
+                loc = random.sample(pt_set, 1)[0]
+                pt_set.remove(loc)
+
+                e = Enemy(
+                    loc[0],
+                    loc[1],
+                    self.config['cellsize'],
+                    self.config['width'], self.config['height'],
+                    id=enemy['id'],
+                    behavior=behaviors[enemy['behavior']],
+                    action_rate=enemy['action_rate']
+                )
+
+                self.enemies.append(e)
+
+        else:
+            for enemy in self.config['enemies']:
+                e = Enemy(
+                    enemy['x'],
+                    enemy['y'],
+                    self.config['cellsize'],
+                    self.config['width'], self.config['height'],
+                    id=enemy['id'],
+                    behavior=behaviors[enemy['behavior']],
+                    action_rate=enemy['action_rate']
+                )
+
+                self.enemies.append(e)
                 
         self.lives = 1
     

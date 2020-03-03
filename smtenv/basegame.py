@@ -4,10 +4,11 @@ import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
 import pygame, math, sys, random
+import numpy as np
 from pygame.constants import KEYUP, KEYDOWN, K_F15
 
 class BaseGame:
-    def __init__(self, width, height, actions, config=None):
+    def __init__(self, width, height, actions, rng_seed=None, config=None):
 
         # Actions the player agent in the simulation can take
         self.actions = actions
@@ -19,7 +20,7 @@ class BaseGame:
         self.score = 0.0
         self.screen = None
         self.clock = None
-        self.rng = None
+        self.rng = np.random.RandomState(seed=None)
         # self.display = display
         self.rwd = 0.0
 

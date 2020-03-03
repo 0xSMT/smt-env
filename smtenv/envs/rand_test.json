@@ -1,0 +1,29 @@
+{
+    "width": 20,
+    "height": 20, 
+    "cellsize": 20,
+    "player": {
+        "x": 10,
+        "y": 10,
+        "vision": 3
+    },
+    "min_dist": 5,
+    "random": true,
+    "enemies": [
+        {
+            "id": "A",
+            "behavior": "xmirror",
+            "action_rate": 4
+        },
+        {
+            "id": "B",
+            "behavior": "chase",
+            "action_rate": 5
+        },
+        {
+            "id": "C",
+            "behavior": "chase",
+            "action_rate": 6
+        }
+    ]
+}
