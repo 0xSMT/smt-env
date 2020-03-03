@@ -189,6 +189,22 @@ class ATESim(BaseGame):
         # return np.asarray(ls, dtype=float)
         return tuple(ls)
     
+    @staticmethod
+    def launch(scenario_path):
+        pygame.init()
+        game = ATESim(scenario_path, ATESim.path_preprocessor)
+        game.setup(display=True)
+        game.init()
+
+        while True:
+            dt = game.clock.tick_busy_loop(30)
+            if game.is_game_over():
+                game.reset()
+
+            game.step(dt)
+            game.draw()
+            pygame.display.update()
+    
     # REQUIRED method
     def __init__(self, config={}, config_preproccesor = lambda p: p):
 
@@ -362,7 +378,6 @@ class ATESim(BaseGame):
         return state
 
 if __name__ == "__main__":
-    import numpy as np
     import sys
 
     fname = ""
@@ -371,16 +386,4 @@ if __name__ == "__main__":
     else:
         raise Exception("No scenario configuration provided!")
 
-    pygame.init()
-    game = ATESim(fname, ATESim.path_preprocessor)
-    game.setup(display=True)
-    game.init()
-
-    while True:
-        dt = game.clock.tick_busy_loop(30)
-        if game.is_game_over():
-            game.reset()
-
-        game.step(dt)
-        game.draw()
-        pygame.display.update()
+    ATESim.launch(fname)
