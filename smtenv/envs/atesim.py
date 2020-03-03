@@ -12,6 +12,7 @@ from smtenv.basegame import BaseGame
 
 # from gym.spaces import Box, Dict
 
+#TODO: Change these to 'policies': takes state, returns action
 def chase(self, px, py):
     disty = self.y - py
     distx = self.x - px
