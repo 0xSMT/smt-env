@@ -363,9 +363,16 @@ class ATESim(BaseGame):
 
 if __name__ == "__main__":
     import numpy as np
+    import sys
+
+    fname = ""
+    if len(sys.argv) > 1:
+        fname = sys.argv[1]
+    else:
+        raise Exception("No scenario configuration provided!")
 
     pygame.init()
-    game = ATESim("./test.json", ATESim.path_preprocessor)
+    game = ATESim(fname, ATESim.path_preprocessor)
     game.setup(display=True)
     game.init()
 
